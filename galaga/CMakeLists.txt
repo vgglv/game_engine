@@ -11,7 +11,7 @@ add_executable(Galaga ${GAME_SOURCES})
 
 target_link_libraries(Galaga PRIVATE GameEngine)
 
-set_target_properties(GameEngine PROPERTIES
+set_target_properties(Galaga PROPERTIES
 	CXX_STANDARD 20
 	CXX_STANDARD_REQUIRED ON
 )
