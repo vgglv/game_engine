@@ -44,7 +44,23 @@ bool Engine::startMainLoop() {
 
 	while (glfwWindowShouldClose(window) == 0) {
 		glfwPollEvents();
+
+		if (current_scene) {
+			current_scene->update();
+			current_scene->draw();
+		}
 	}
 	glfwTerminate();
 	return true;
+}
+
+void Engine::setScene(std::unique_ptr<GameScene> scene) {
+	current_scene = std::move(scene);
+}
+
+GameScene* Engine::getCurrentScene() {
+	if (!current_scene) {
+		return nullptr;
+	}
+	return current_scene.get();
 }
